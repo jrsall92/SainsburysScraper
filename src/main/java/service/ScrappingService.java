@@ -1,5 +1,6 @@
 package service;
 
+import domain.Item;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -46,11 +47,27 @@ public class ScrappingService {
 
             Document doc = Jsoup.connect(productLink).get();
             String title = doc.select("div.productTitleDescriptionContainer h1").text();
+            String price = doc.select("p.pricePerUnit").text();
+            String description = doc.select("div.productText p").first().text();
+            String kcalPer100g;
 
+            try{
+                kcalPer100g = doc.select("table.nutritionTable tbody tr").get(1).select("td").text();
+            }
+            catch (NullPointerException | IndexOutOfBoundsException e){
+                kcalPer100g = "No calories information available";
+            }
 
+            System.out.println(title);
+            System.out.println(price);
+            System.out.println(description);
+            System.out.println(kcalPer100g);
+            System.out.println("----------------------");
 
         } catch (IOException e) {
             System.err.println("Couldn't get: " + productLink);
         }
+
+//        return item;
     }
 }
