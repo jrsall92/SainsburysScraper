@@ -1,5 +1,7 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 public class Item {
 
     private String title;
@@ -18,32 +20,17 @@ public class Item {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public double getUnit_price() {
         return unit_price;
     }
 
-    public void setUnit_price(double unit_price) {
-        this.unit_price = unit_price;
-    }
-
-    public int getKcal_per_100g() {
-        return kcal_per_100g;
-    }
-
-    public void setKcal_per_100g(int kcal_per_100g) {
-        this.kcal_per_100g = kcal_per_100g;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String getKcal_per_100g() {
+        return kcal_per_100g >= 0 ? String.valueOf(kcal_per_100g) : null;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @Override
