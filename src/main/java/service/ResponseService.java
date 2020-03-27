@@ -14,6 +14,10 @@ public class ResponseService {
         this.scrappingService = new ScrappingService();
     }
 
+    public ResponseService(ScrappingService scrappingService) {
+        this.scrappingService = scrappingService;
+    }
+
     public Response getResponse(String url){
         Collection<Item> products = scrappingService.getProducts(url);
         Total total = calculateTotal(products);

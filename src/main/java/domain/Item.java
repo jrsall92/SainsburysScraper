@@ -2,6 +2,8 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.Objects;
+
 public class Item {
 
     private String title;
@@ -41,5 +43,21 @@ public class Item {
                 ", kcal_per_100g=" + kcal_per_100g +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+        Item item = (Item) o;
+        return Double.compare(item.unit_price, unit_price) == 0 &&
+                kcal_per_100g == item.kcal_per_100g &&
+                Objects.equals(title, item.title) &&
+                Objects.equals(description, item.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, unit_price, kcal_per_100g, description);
     }
 }
