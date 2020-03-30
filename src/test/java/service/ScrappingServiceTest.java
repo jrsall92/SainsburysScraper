@@ -1,8 +1,9 @@
 package service;
 
-import Utils.LogUtil;
+import com.jsalliaris.Utils.LogUtil;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import domain.Item;
+import com.jsalliaris.domain.Item;
+import com.jsalliaris.service.ScrappingService;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Rule;

@@ -1,4 +1,4 @@
-package domain;
+package com.jsalliaris.domain;
 
 public class Total {
 

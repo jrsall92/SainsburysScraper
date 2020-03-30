@@ -1,7 +1,6 @@
-package domain;
+package com.jsalliaris.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import java.util.Objects;
 

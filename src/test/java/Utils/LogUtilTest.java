@@ -1,5 +1,6 @@
 package Utils;
 
+import com.jsalliaris.Utils.LogUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +8,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static Utils.LogUtil.setDebug;
+import static com.jsalliaris.Utils.LogUtil.setDebug;
 import static org.junit.Assert.*;
 
 public class LogUtilTest {

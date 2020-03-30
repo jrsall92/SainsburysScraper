@@ -1,7 +1,9 @@
 package service;
 
-import domain.Item;
-import domain.Response;
+import com.jsalliaris.domain.Item;
+import com.jsalliaris.domain.Response;
+import com.jsalliaris.service.ResponseService;
+import com.jsalliaris.service.ScrappingService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

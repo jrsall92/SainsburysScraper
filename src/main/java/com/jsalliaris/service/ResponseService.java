@@ -1,8 +1,8 @@
-package service;
+package com.jsalliaris.service;
 
-import domain.Item;
-import domain.Response;
-import domain.Total;
+import com.jsalliaris.domain.Item;
+import com.jsalliaris.domain.Response;
+import com.jsalliaris.domain.Total;
 
 import java.util.Collection;
 

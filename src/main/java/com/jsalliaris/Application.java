@@ -1,20 +1,27 @@
-import Utils.LogUtil;
+package com.jsalliaris;
+
+import com.jsalliaris.Utils.LogUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import domain.Response;
-import service.ResponseService;
+import com.jsalliaris.domain.Response;
+import com.jsalliaris.service.ResponseService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Application {
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) {
         checkArgs(args);
         ResponseService responseService = new ResponseService();
         Response response = responseService.getResponse(args[0]);
         ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response);
+        String json = null;
+        try {
+            json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         System.out.println(json);
     }
 

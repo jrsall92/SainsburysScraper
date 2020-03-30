@@ -1,6 +1,6 @@
-package service;
+package com.jsalliaris.service;
 
-import domain.Item;
+import com.jsalliaris.domain.Item;
 import org.jsoup.Jsoup;
 import org.jsoup.internal.StringUtil;
 import org.jsoup.nodes.Document;
@@ -12,8 +12,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import static Utils.LogUtil.log;
-import static Utils.LogUtil.logError;
+import static com.jsalliaris.Utils.LogUtil.log;
+import static com.jsalliaris.Utils.LogUtil.logError;
 
 public class ScrappingService {
 
