@@ -62,7 +62,7 @@ public class ScrappingService {
         try {
 
             Document doc = Jsoup.connect(productLink).get();
-            String title = doc.select("div.productTitleDescriptionContainer h1").text();
+            String title = doc.select("title").text();
             double price = sanitizePrice(doc.select("p.pricePerUnit").text());
             String description = doc.select("div.productText p").first().text();
 
@@ -70,7 +70,7 @@ public class ScrappingService {
                 description = doc.select("div.itemTypeGroup p:not(.statements)").first().text();
             }
 
-            int kcalPer100g = -1;
+            int kcalPer100g = 0;
 
             try{
                 kcalPer100g = sanitizeCalories(doc.select("table.nutritionTable tbody tr").get(1)

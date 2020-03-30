@@ -1,6 +1,7 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import java.util.Objects;
 
@@ -26,9 +27,9 @@ public class Item {
         return unit_price;
     }
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public String getKcal_per_100g() {
-        return kcal_per_100g >= 0 ? String.valueOf(kcal_per_100g) : null;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    public int getKcal_per_100g() {
+        return kcal_per_100g;
     }
 
     public String getDescription() {
